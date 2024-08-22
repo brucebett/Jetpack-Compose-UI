@@ -1,4 +1,4 @@
-package com.example.uiexampleproject.ui.theme
+package com.example.uiexampleproject.ui.theme.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,12 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role.Companion.Button
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.uiexampleproject.ui.theme.Blue
+import com.example.uiexampleproject.ui.theme.Green
 
 @Composable
 fun GradientButton(
@@ -47,21 +49,27 @@ fun GradientButton(
     {
 
         Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent
-            ),
-            border = BorderStroke(2.dp, Color.Red),
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent),
+            border = BorderStroke(5.dp, Color.Red),
             contentPadding = PaddingValues(5.dp),
             onClick = { onClick() },
+            modifier = Modifier
+                .padding(16.dp)
+                .height(50.dp)
+                .fillMaxWidth()
         )
         {
             Box(
                 modifier = Modifier
                     .background(gradient)
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
+                    .height(50.dp)
+                    .fillMaxWidth(),
+
                 contentAlignment = Alignment.Center
+
             ) {
-                Text(text = text, color = textColor)
+                Text(text = "dvcxfvsydcsdghfvywsfvycvwfcyg", color = textColor)
             }
         }
         Spacer(modifier = Modifier.height(50.dp))
@@ -98,6 +106,7 @@ fun GradientButton(
         }
         Button(
             onClick = onClick,
+            border = BorderStroke(2.dp, Color.Black),
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF6200EE), // Purple
                 contentColor = Color.White
@@ -121,13 +130,33 @@ fun GradientButton(
                 )
             )
         }
+
+        Surface ( modifier = Modifier
+            .width(250.dp)
+            .height(100.dp)
+            .padding(16.dp)
+            .background(color = Green),
+            color = Color.LightGray,
+            // Background color
+            shape = RoundedCornerShape(6.dp), // Shape (can be CircleShape, RoundedCornerShape, etc.)
+            shadowElevation = 20.dp, // Elevation for shadow
+            border = BorderStroke(2.dp, Color.Black), ) {
+            Text(
+                text = "I am a Surface",
+                fontSize = 24.sp,
+                color = Color.Black,
+                modifier = Modifier.padding(16.dp)
+
+
+
+            ) }
     }
 
 
 
 }
 
-@Preview
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun GradientButtonPreview() {
     GradientButton(text = "Button",
