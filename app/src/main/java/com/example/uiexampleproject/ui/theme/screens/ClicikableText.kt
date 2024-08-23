@@ -38,7 +38,7 @@ fun Clickabletext(modifier: Modifier = Modifier) {
          //append your initial text
          withStyle(
              style = SpanStyle(
-                 color = Color.Gray,
+                 color = Color.Black,
              )
          ) {
              append("Don't have an account? ")
