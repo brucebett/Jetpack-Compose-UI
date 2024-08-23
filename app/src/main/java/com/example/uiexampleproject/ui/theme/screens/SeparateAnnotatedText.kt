@@ -18,6 +18,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -74,7 +75,10 @@ fun RegisterText(modifier: Modifier = Modifier) {
         },
         modifier = modifier
             .clip(shape = RoundedCornerShape(10.dp))
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        style = androidx.compose.ui.text.TextStyle(
+            textAlign = TextAlign.Center  // Center the text horizontally
+        )
     )
 }
 
@@ -93,7 +97,7 @@ fun ForgotPasswordText(modifier: Modifier = Modifier) {
                 fontWeight = FontWeight.SemiBold
             )
         ) {
-            append("Forgot Password...? ")
+            append("Forgot Your Password...? ")
         }
 
         pushStringAnnotation(
@@ -129,7 +133,10 @@ fun ForgotPasswordText(modifier: Modifier = Modifier) {
         },
         modifier = modifier
             .clip(shape = RoundedCornerShape(10.dp))
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        style = androidx.compose.ui.text.TextStyle(
+                textAlign = TextAlign.Center  // Center the text horizontally
+                )
     )
 }
 
